@@ -1,0 +1,112 @@
+<nav 
+	class="navbar navbar-default">
+	<div 
+		class="container">
+		<div 
+			class="navbar-header">
+			<a 
+				class="font-family-1-size-large navbar-brand" 
+				href="#">
+				ZipMenu
+			</a>
+		</div>
+		<ul 
+			class="font-family-2-size-medium nav navbar-nav navbar-right" 
+			ng-show="!bannerController.user.isAuthenticated">
+			<li>
+				<a 
+					ng-click="bannerController.doSignup();" 
+					ui-sref="home">
+					<span 
+						class="glyphicon glyphicon-user">
+					</span>
+					Sign Up
+				</a>
+			</li>
+		</ul>
+		<form 
+			class="form-inline navbar-form navbar-right" 
+			ng-show="!bannerController.user.isAuthenticated">
+			<div 
+				class="form-group required">
+				<div 
+					class="input-group">
+					<span 
+						class="input-group-addon">
+						<i 
+							class="glyphicon glyphicon-user">
+						</i>
+					</span>
+					<input 
+						class="form-control" 
+						maxlength="30" 
+						ng-model="bannerController.loginUsername" 
+						placeholder="Username" 
+						required 
+						type="text">
+				</div>
+			</div>
+			<div
+				class="form-group required">
+				<div 
+					class="input-group">
+					<span 
+						class="input-group-addon">
+						<i 
+							class="glyphicon glyphicon-lock">
+						</i>
+					</span>
+					<input 
+						class="form-control" 
+						maxlength="30" 
+						ng-model="bannerController.loginPassword" 
+						placeholder="Password" 
+						required 
+						type="password">
+				</div>
+			</div>
+			<div 
+				class="button-container form-group">
+				<button 
+					class="btn btn-success" 
+					ng-click="bannerController.doLogin();" 
+					type="button">
+					<span 
+						class="glyphicon glyphicon-log-in">
+					</span>&nbsp
+					Log-In
+				</button>
+			</div>
+		</form>
+		<ul 
+			class="font-family-2-size-medium nav navbar-nav navbar-right" 
+			ng-click="bannerController.doLogout();" 
+			ng-show="bannerController.user.isAuthenticated">
+			<li>
+				<a 
+					href="#">
+					<i 
+						class="glyphicon glyphicon-log-out">
+					</i>
+					Log-Out
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<nav 
+	class="navbar navbar-fixed-bottom navbar-inverse">
+	<div 
+		class="container">
+		<span 
+			class="font-family-2-size-small navbar-text">
+			Powered By:
+		</span>
+		<a 
+			href="#">
+			<img 
+				class="img-responsive company_logo_image" 
+				src="docs/dynamic/banner/res/img/zipLogic.png">
+		</a>
+	</div>
+</nav>

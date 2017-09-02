@@ -1,0 +1,146 @@
+<div 
+	class="modal-content">
+	<div 
+		class="modal-header">
+		Manage Table
+	</div>
+	<!--  *************** 
+			modal_table-container (start)
+			*************** -->
+	<div 
+		class="modal-body" 
+		id="modal_table-container" 
+		name="modal_table-container" 
+		ng-init="modalTableController.initBootstrapValidator(); initDom();">
+		<div 
+			class="alert alert-danger" 
+			ng-hide="modalTableController.isValidationErrDBHidden">
+			{{modalTableController.validationErrDB}}
+		</div>
+		<!--  *************** 
+				modal_table (start)
+				*************** -->
+		<form 
+			class="form-group" 
+			id="modal_table" 
+			name="modal_table">
+			<div 
+				class="container-fluid">
+				<div 
+					class="row" 
+					ng-hide="modalTableController.modalHiddenFields['tableNumber']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Number
+							</span>
+							<input 
+								class="form-control" 
+								ng-hide="modalTableController.modalHiddenFields['tableNumber']" 
+								ng-model="modalTableController.table.tableNumber" 
+								placeholder="Number" 
+								required 
+								type="number">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalTableController.validationErr[0]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalTableController.modalHiddenFields['tableCapacity']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Capacity
+							</span>
+							<input 
+								class="form-control" 
+								ng-hide="modalTableController.modalHiddenFields['tableCapacity']" 
+								ng-model="modalTableController.table.tableCapacity" 
+								placeholder="Capacity" 
+								required 
+								type="number">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalTableController.validationErr[1]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalTableController.modalHiddenFields['tableStatus']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Status
+							</span>
+							<select 
+								class="form-control" 
+								ng-hide="modalTableController.modalHiddenFields['tableStatus']" 
+								ng-model="modalTableController.table.tableStatus" 
+								ng-options="k as v for (k, v) in modalTableController.tableStatusOptions" 
+								required>
+							</select>
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalTableController.validationErr[2]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row">
+					<div 
+						class="child-content-center col-md-12 col-sm-12 col-xs-12">
+						<qrcode 
+							data={{modalTableController.qrcodeData}} 
+							download 
+							id="qrcode" 
+							name="qrcode" 
+							size="125">
+						</qrcode>
+					</div>
+				</div>
+				<div 
+					class="button-container row">
+			        <div 
+			        	class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-success" 
+							type="submit">
+							Submit
+						</button>
+					</div>
+			        <div 
+						class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-danger" 
+							ng-click="modalTableController.doCancel();" 
+							type="button">
+							Cancel
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--  *************** 
+				modal_table (end)
+				*************** -->
+	</div>
+	<!--  *************** 
+			modal_table-container (end)
+			*************** -->
+</div>

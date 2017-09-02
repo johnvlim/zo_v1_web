@@ -1,0 +1,63 @@
+div.nav-divider{
+	border-bottom: solid 1px #303030;
+	
+	font-family: 'Pavanam', sans-serif;
+	font-size: 15px;
+	
+	margin-bottom: 5px;
+	
+	text-align: center;
+}
+
+div.user_avatar-container{
+	font-family: 'Pavanam', sans-serif;
+	font-size: 15px;
+	
+	height: 100px;
+	
+	text-align: center;
+}
+
+div.user_avatar-container > img{
+	height: 90%;
+	margin: auto;
+}
+
+ul.nav_list-container a{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+ul.nav_list-container a:focus, 
+ul.nav_list-container a:hover, 
+ul.nav_list-container a.active{
+	background-color: #dff0d8;
+	
+	border-radius: 25px;
+}
+
+ul.nav_list-container div.lv1-node, 
+ul.nav_list-container div.lv2-node, 
+ul.nav_list-container div.lv3-node, 
+ul.nav_list-container div.lv4-node, 
+ul.nav_list-container div.lv5-node{
+	color: #ffa500;
+	
+	font-size: 15px;
+}
+
+ul.nav_list-container div.lv2-node{
+	padding-left: 25px;
+}
+
+ul.nav_list-container div.lv3-node{
+	padding-left: 50px;
+}
+
+ul.nav_list-container div.lv4-node{
+	padding-left: 75px;
+}
+
+ul.nav_list-container div.lv5-node{
+	padding-left: 100px;
+}

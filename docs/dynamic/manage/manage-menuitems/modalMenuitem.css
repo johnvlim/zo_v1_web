@@ -1,0 +1,13 @@
+div.menuitem_image_image-container{
+	height: 150px;
+	width: 150px;
+	
+	margin: auto;
+	padding: 0px 10px;
+	
+	text-align: center;
+}
+
+div.menuitem_image_image-container > img{
+	width: 100%;
+}

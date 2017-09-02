@@ -1,0 +1,18 @@
+div#ui-datepicker-div{
+	z-index: 10000 !important;
+}
+
+div#ui-datepicker-div a.ui-state-default{
+	background: #f0f0f0;
+}
+
+div#ui-datepicker-div div.ui-datepicker-header{
+	background: #dff0d8;
+	font-family: 'Pavanam', sans-serif;
+	font-size: 12px;
+}
+
+div#ui-datepicker-div table.ui-datepicker-calendar{
+	font-family: 'Pavanam', sans-serif;
+	font-size: 12px;
+}

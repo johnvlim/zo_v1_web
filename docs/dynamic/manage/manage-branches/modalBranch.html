@@ -1,0 +1,257 @@
+<div 
+	class="modal-content">
+	<div 
+		class="modal-header">
+		Manage Branch
+	</div>
+	<!--  *************** 
+			modal_branch-container (start)
+			*************** -->
+	<div 
+		class="modal-body" 
+		id="modal_branch-container" 
+		name="modal_branch-container" 
+		ng-init="modalBranchController.initBootstrapValidator(); modalBranchController.initDom();">
+		<div 
+			class="alert alert-danger" 
+			ng-hide="modalBranchController.isValidationErrDBHidden">
+			{{modalBranchController.validationErrDB}}
+		</div>
+		<!--  *************** 
+				modal_branch (start)
+				*************** -->
+		<form 
+			class="form-group" 
+			id="modal_branch" 
+			name="modal_branch">
+			<div 
+				class="container-fluid">
+				<div 
+					class="row" 
+					ng-hide="modalBranchController.modalHiddenFields['branchName']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Name
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="30" 
+								ng-hide="modalBranchController.modalHiddenFields['branchName']" 
+								ng-model="modalBranchController.branch.branchName" 
+								placeholder="Name" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalBranchController.validationErr[0]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalBranchController.modalHiddenFields['companyName']">
+					<div 
+						class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Company name
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="30" 
+								ng-hide="modalBranchController.modalHiddenFields['companyName']" 
+								ng-model="modalBranchController.branch.companyName" 
+								placeholder="Company name" 
+								required 
+								type="text">
+							<!--  *************** 
+									companyName (end)
+									*************** -->
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalBranchController.validationErr[1]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalBranchController.modalHiddenFields['branchAddressHouseBuilding']">
+					<div 
+						class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Address
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="30" 
+								ng-hide="modalBranchController.modalHiddenFields['branchAddressHouseBuilding']" 
+								ng-model="modalBranchController.branch.branchAddressHouseBuilding" 
+								placeholder="House / Floor, Building" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalBranchController.validationErr[2]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row">
+					<div 
+						class="col-md-4 col-sm-4 col-xs-12 form-group form-group-required" 
+						ng-hide="modalBranchController.modalHiddenFields['branchAddressStreet']">
+						<input 
+							class="form-control" 
+							maxlength="30" 
+							ng-hide="modalBranchController.modalHiddenFields['branchAddressStreet']" 
+							ng-model="modalBranchController.branch.branchAddressStreet" 
+							placeholder="Street" 
+							required 
+							type="text">
+						<div 
+							class="help-block with-errors">
+							{{modalBranchController.validationErr[3]}}
+						</div>
+					</div>
+					<div 
+						class="col-md-4 col-sm-4 col-xs-12 form-group form-group-required" 
+						ng-hide="modalBranchController.modalHiddenFields['branchAddressDistrict']">
+						<input 
+							class="form-control" 
+							maxlength="30" 
+							ng-hide="modalBranchController.modalHiddenFields['branchAddressDistrict']" 
+							ng-model="modalBranchController.branch.branchAddressDistrict" 
+							placeholder="District" 
+							required 
+							type="text">
+						<div 
+							class="help-block with-errors">
+							{{modalBranchController.validationErr[4]}}
+						</div>
+					</div>
+					<div 
+						class="col-md-4 col-sm-4 col-xs-12 form-group form-group-required" 
+						ng-hide="modalBranchController.modalHiddenFields['branchAddressCity']">
+						<input 
+							class="form-control" 
+							maxlength="30" 
+							ng-hide="modalBranchController.modalHiddenFields['branchAddressCity']" 
+							ng-model="modalBranchController.branch.branchAddressCity" 
+							placeholder="City" 
+							required 
+							type="text">
+						<div 
+							class="help-block with-errors">
+							{{modalBranchController.validationErr[5]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row">
+					<div 
+						class="col-md-4 col-sm-4 col-xs-12 form-group form-group-required" 
+						ng-hide="modalBranchController.modalHiddenFields['branchAddressPostalCode']">
+						<input 
+							class="form-control" 
+							maxlength="30" 
+							ng-hide="modalBranchController.modalHiddenFields['branchAddressPostalCode']" 
+							ng-model="modalBranchController.branch.branchAddressPostalcode" 
+							placeholder="Postalcode" 
+							required 
+							type="text">
+						<div class="help-block with-errors">
+						{{modalBranchController.validationErr[6]}}
+						</div>
+					</div>
+					<div 
+						class="col-md-4 col-sm-4 col-xs-12 form-group" 
+						ng-hide="modalBranchController.modalHiddenFields['branchAddressCountry']">
+						<input 
+							class="form-control" 
+							maxlength="30" 
+							ng-hide="modalBranchController.modalHiddenFields['branchAddressCountry']" 
+							ng-model="modalBranchController.branch.branchAddressCountry" 
+							placeholder="Country" 
+							required 
+							type="text">
+						<div 
+							class="help-block with-errors">
+							{{modalBranchController.validationErr[7]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalBranchController.modalHiddenFields['branchHotline']">
+					<div 
+						class="col-md-6 col-sm-12 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Hotline
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="10" 
+								ng-hide="modalBranchController.modalHiddenFields['branchHotline']" 
+								ng-model="modalBranchController.branch.branchHotline" 
+								placeholder="Hotline" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalBranchController.validationErr[8]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="button-container row">
+			        <div 
+			        	class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-success" 
+							type="submit">
+							<span 
+								ng-if="!modalCustomerController.fromSignup">
+								Submit
+							</span>
+							<span 
+								ng-if="modalCustomerController.fromSignup">
+								Next
+							</span>
+						</button>
+					</div>
+			        <div 
+						class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-danger" 
+							ng-click="modalBranchController.doCancel();" 
+							type="button">
+							Cancel
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--  *************** 
+				modal_branch (end)
+				*************** -->
+	</div>
+	<!--  *************** 
+			modal_branch-container (end)
+			*************** -->
+</div>

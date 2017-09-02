@@ -1,0 +1,190 @@
+<div 
+	class="row" 
+	ng-controller="manageNavigationController as manageNavigationController" 
+	ng-init="manageNavigationController.initDom();">
+	<div 
+		class="panel panel-success">
+		<div 
+			class="panel-heading user_avatar-container">
+			<img 
+				src="docs/dynamic/manage/manage-navigation/res/img/userAvatar.png"><br>
+			{{manageNavigationController.customerUsername}}
+		</div>
+		<div 
+			class="font-family-2-size-medium panel-body">
+			<div 
+				class="nav-divider">
+				Manage
+			</div>
+			<ul 
+				class="nav nav_list-container">
+				<li>
+					<a 
+						ui-sref="manage.company">
+						<div 
+							class="lv1-node">
+							<span 
+								class="glyphicon glyphicon-home">
+							</span>
+							Restaurant
+						</div>
+					</a>
+					<ul 
+						class="nav nav_list-container">
+						<li 
+							ng-hide="manageNavigationController.isManageBranchHidden">
+							<a 
+								ui-sref="manage.company.branch({companyName: manageNavigationController.companyName})">
+								<div 
+									class="lv2-node">
+									<span 
+										class="glyphicon glyphicon-globe">
+									</span>
+									Branch
+								</div>
+							</a>
+							<ul 
+								class="nav nav_list-container">
+								<li 
+									ng-hide="manageNavigationController.isManageTableHidden">
+									<a 
+										ui-sref="manage.company.branch.table({companyName: manageNavigationController.companyName, branchName: manageNavigationController.branchName})">
+										<div 
+											class="lv3-node">
+											<span 
+												class="glyphicon glyphicon-glass">
+											</span>
+											Table
+										</div>
+									</a>
+									<ul 
+										class="nav nav_list-container">
+										<li 
+											ng-hide="manageNavigationController.isManageOrderreferenceHidden">
+											<a 
+												ui-sref="manage.company.branch.table.orderreference({companyName: manageNavigationController.companyName, branchName: manageNavigationController.branchName, tableNumber: manageNavigationController.tableNumber})">
+												<div 
+													class="lv4-node">
+													<span 
+														class="glyphicon glyphicon-edit">
+													</span>
+													Orderreference
+												</div>
+											</a>
+											<ul 
+												class="nav nav_list-container">
+												<li 
+													ng-hide="manageNavigationController.isManageOrderHidden">
+													<a 
+														ui-sref="manage.company.branch.table.orderreference.order({companyName: manageNavigationController.companyName, branchName: manageNavigationController.branchName, tableNumber: manageNavigationController.tableNumber, orderreferenceCode: manageNavigationController.orderreferenceCode})">
+														<div 
+															class="lv5-node">
+															<span 
+																class="glyphicon glyphicon-edit">
+															</span>
+															Order
+														</div>
+													</a>
+												</li>
+												<li 
+													ng-hide="manageNavigationController.isManageReservationHidden">
+													<a 
+														ui-sref="manage.company.branch.table.orderreference.reservation({companyName: manageNavigationController.companyName, branchName: manageNavigationController.branchName, tableNumber: manageNavigationController.tableNumber, orderreferenceCode: manageNavigationController.orderreferenceCode})">
+														<div 
+															class="lv5-node">
+															<span 
+																class="glyphicon glyphicon-edit">
+															</span>
+															Reservation
+														</div>
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li 
+							ng-hide="manageNavigationController.isManageMenuHidden">
+							<a 
+								ui-sref="manage.company.menu({companyName: manageNavigationController.companyName})">
+								<div 
+									class="lv2-node">
+									<span 
+										class="glyphicon glyphicon-th-list">
+									</span>
+									Menu
+								</div>
+							</a>
+							<ul 
+								class="nav nav_list-container">
+								<li 
+									ng-hide="manageNavigationController.isManageMenuitemHidden">
+									<a 
+										ui-sref="manage.company.menu.menuitem({companyName: manageNavigationController.companyName, menuName: manageNavigationController.menuName})">
+										<div 
+											class="lv3-node">
+											<span 
+												class="glyphicon glyphicon-cutlery">
+											</span>
+											Menuitem
+										</div>
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a 
+						ui-sref="manage.customer">
+						<div 
+							class="lv1-node">
+							<span 
+								class="glyphicon glyphicon-user">
+							</span>
+							User
+						</div>
+					</a>
+				</li>
+				<li>
+					<a 
+						ui-sref="manage.orderreference">
+						<div 
+							class="lv1-node">
+							<span 
+								class="glyphicon glyphicon-edit">
+							</span>
+							Orderreference
+						</div>
+					</a>
+				</li>
+				<li>
+					<a 
+						ui-sref="manage.order">
+						<div 
+							class="lv1-node">
+							<span 
+								class="glyphicon glyphicon-edit">
+							</span>
+							Order
+						</div>
+					</a>
+				</li>
+				<li>
+					<a 
+						ui-sref="manage.reservation">
+						<div 
+							class="lv1-node">
+							<span 
+								class="glyphicon glyphicon-edit">
+							</span>
+							Reservation
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,64 @@
+div.dataTables_wrapper a.btn-control{
+	width: 75px;
+}
+
+div.dataTables_wrapper div.dataTables_filter label input, 
+div.dataTables_wrapper div.dataTables_info, 
+div.dataTables_wrapper div.dataTables_paginate, 
+div.dataTables_wrapper td.dataTables_empty{
+	font-family: 'Pavanam', sans-serif;
+	font-size: 15px;
+}
+
+div.dataTables_wrapper div#dtWrapper{
+	margin: 0px;
+	
+	overflow-x: scroll;
+}
+
+div.dataTables_wrapper label{
+	font-family: 'Pavanam', sans-serif;
+	font-size: 15px;
+}
+
+div.dataTables_wrapper tbody td.dt-table-cell{
+	font-family: 'Pavanam', sans-serif;
+	font-size: 15px;
+	
+	max-width: 125px;
+	min-width: 125px;
+	
+	overflow: hidden;
+	
+	padding: 5px 25px;
+	
+	text-align: left;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+div.dataTables_wrapper thead input{
+	border: solid 1px #c0c0c0;
+	border-radius: 3px;
+	
+	font-family: 'Pavanam', sans-serif;
+	font-size: 15px;
+	
+	padding: 3px 5px;
+}
+
+div.dataTables_wrapper thead th.dt-table-cell{
+	font-family: 'Pavanam', sans-serif;
+	font-size: 15px;
+	font-weight: normal !important;
+	
+	max-width: 125px;
+	min-width: 125px;
+	
+	text-align: center;
+	white-space: nowrap;
+}
+
+ul.dt-button-collection li.dt-button.active a{
+	background-color: #303030;
+}

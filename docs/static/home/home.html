@@ -1,0 +1,165 @@
+<!--  *************** 
+		launch_form_btn (start)
+		*************** -->
+<button 
+	class="btn btn-success" 
+	id="launch_form_btn" 
+	name="launch_form_btn" 
+	ng-click="homeController.togglePreSignupVisibility();">
+	<i 
+		class="glyphicon glyphicon-chevron-up">
+	</i>
+</button>
+<!--  *************** 
+		launch_form_btn (end)
+		*************** -->
+
+<!--  *************** 
+		modal-container (start)
+		*************** -->
+<div 
+	class="modal-content" 
+	id="modal_pre_signup_root" 
+	name="modal_pre_signup_root" 
+	ng-init="homeController.initBootstrapValidator(); homeController.initDom();">
+	<div 
+		class="modal-header">
+		Sign-Up
+	</div>
+	<!--  *************** 
+			modal_pre_signup-container (start)
+			*************** -->
+	<div 
+		class="modal-body" 
+		id="modal_pre_signup-container" 
+		name="modal_pre_signup-container" 
+		ng-init="">
+		<!--  *************** 
+				modal_pre_signup (start)
+				*************** -->
+		<form 
+			class="form-group" 
+			id="modal_pre_signup" 
+			name="modal_pre_signup">
+			<div 
+				class="container-fluid">
+				<div 
+					class="row">
+					<div 
+			 			class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+			 			<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Name: 
+							</span>
+							<input 
+								class="form-control" 
+						       	maxlength="30" 
+						       	ng-model="homeController.preSignupDetails.customer_name" 
+								placeholder="Name" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+						</div>
+			 		</div>
+			 	</div>
+			 	<!-- 
+			 	<div 
+					class="row">
+					<div 
+			 			class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+			 			<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Last Name: 
+							</span>
+							<input 
+								class="form-control" 
+						       	maxlength="30" 
+						       	ng-model="homeController.preSignupDetails.lastName" 
+								placeholder="Last Name" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+						</div>
+			 		</div>
+				</div> -->
+			 	<div 
+			 		class="row">
+			 		<div 
+			 			class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+			 			<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Restaurant: 
+							</span>
+							<input 
+								class="form-control" 
+						       	maxlength="30" 
+						       	ng-model="homeController.preSignupDetails.company_name" 
+								placeholder="Restaurant" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+						</div>
+			 		</div>	
+			 	</div>
+			 	<div 
+			 		class="row">
+			 		<div 
+			 			class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+			 			<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Email: 
+							</span>
+							<input 
+								class="form-control" 
+						       	maxlength="30" 
+						       	ng-model="homeController.preSignupDetails.customer_email" 
+								placeholder="Email" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+						</div>
+			 		</div>
+			 	</div>
+			 	<div 
+					class="button-container row">
+					<div 
+			        	class="col-md-12 col-sm-12 col-xs-12">
+			        	<button 
+							class="btn btn-success" 
+							type="submit">
+							<i 
+								class="glyphicon glyphicon-send">
+							</i>
+							Submit
+						</button>
+			        </div>
+				</div>
+			</div>
+		</form>
+		<!--  *************** 
+				modal_pre_signup (end)
+				*************** -->
+	</div>
+	<!--  *************** 
+			modal_pre_signup-container (end)
+			*************** -->
+</div>
+<!--  *************** 
+		modal-container (end)
+		*************** -->

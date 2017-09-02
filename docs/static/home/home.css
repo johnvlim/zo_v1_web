@@ -1,0 +1,15 @@
+button#launch_form_btn{
+	bottom: 100px;
+	position: fixed;
+	
+	opacity: 0.7;
+	
+	right: 50px;
+}
+
+div#modal_pre_signup_root{
+	position: absolute;
+	right: 100px;
+	
+	width: 350px;
+}

@@ -1,0 +1,447 @@
+<div 
+	class="modal-content">
+	<div 
+		class="modal-header">
+		Manage Customer
+	</div>
+	<!--  *************** 
+			modal_customer-container (start)
+			*************** -->
+	<div 
+		class="modal-body" 
+		id="modal_customer-container" 
+		name="modal_customer-container" 
+		ng-init="modalCustomerController.initBootstrapValidator(); modalCustomerController.initBootstrapDatepicker(); modalCustomerController.initDom();">
+		<div 
+			class="alert alert-danger" 
+			ng-hide="modalCustomerController.isValidationErrDBHidden">
+			{{modalCustomerController.validationErrDB}}
+		</div>
+		<!--  *************** 
+				modal_customer (start)
+				*************** -->
+		<form 
+			class="form-group" 
+			id="modal_customer" 
+			name="modal_customer">
+			<div 
+				class="container-fluid">
+				<div 
+					class="row" 
+					ng-hide="modalCustomerController.modalHiddenFields['customerUsername']">
+			 		<div 
+			 			class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Username
+							</span>
+							<input 
+								class="form-control" 
+						       	maxlength="30" 
+						       	ng-hide="modalCustomerController.modalHiddenFields['customerUsername']" 
+								ng-model="modalCustomerController.customer.customerUsername" 
+								placeholder="Username" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[0]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalCustomerController.modalHiddenFields['customerPassword']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Password
+							</span>
+							<!--  *************** 
+									customer_password (start)
+									*************** -->
+							<input 
+								class="form-control" 
+								id="customer_password" 
+								maxlength="30" 
+								name="customer_password" 
+								ng-hide="modalCustomerController.modalHiddenFields['customerPassword']" 
+								ng-model="modalCustomerController.customer.customerPassword" 
+								placeholder="Password" 
+								required 
+								type="password">
+								<!--  *************** 
+									customer_password (end)
+									*************** -->
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[1]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalCustomerController.modalHiddenFields['customerPassword']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group">
+						<input 
+							class="form-control" 
+							data-match="#customer_password" 
+							maxlength="30" 
+							ng-hide="modalCustomerController.modalHiddenFields['customerPassword']" 
+							placeholder="Confirm Password" 
+							required 
+							type="password">
+						<div 
+							class="help-block with-errors">
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required" 
+						ng-hide="modalCustomerController.modalHiddenFields['customerNameFname']">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Name
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="30" 
+								ng-hide="modalCustomerController.modalHiddenFields['customerNameFname']" 
+								ng-model="modalCustomerController.customer.customerNameFname" 
+								placeholder="First Name" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[2]}}
+						</div>
+					</div>
+					<div 
+						class="col-md-3 col-sm-3 col-xs-12 form-group" 
+						ng-hide="modalCustomerController.modalHiddenFields['customerNameMname']">
+						<input 
+							class="form-control" 
+							maxlength="30" 
+							ng-hide="modalCustomerController.modalHiddenFields['customerNameMname']" 
+							ng-model="modalCustomerController.customer.customerNameMname" 
+							placeholder="Middle Name" 
+							required 
+							type="text">
+						<div 
+		          			class="help-block with-errors">
+		          			{{modalCustomerController.validationErr[3]}}
+		          		</div>
+					</div>
+					<div 
+						class="col-md-3 col-sm-3 col-xs-12 form-group" 
+						ng-hide="modalCustomerController.modalHiddenFields['customerNameLname']">
+						<input 
+							class="form-control" 
+							maxlength="30" 
+							ng-hide="modalCustomerController.modalHiddenFields['customerNameLname']" 
+							ng-model="modalCustomerController.customer.customerNameLname" 
+							placeholder="Last Name" 
+							required 
+							type="text">
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[4]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalCustomerController.modalHiddenFields['customerRole']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Role
+							</span>
+							<select 
+								class="form-control" 
+								ng-hide="modalCustomerController.modalHiddenFields['customerRole']" 
+								ng-model="modalCustomerController.customer.customerRole" 
+								ng-options="k as v for (k, v) in modalCustomerController.customerRoleOptions" 
+								required>
+							</select>
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[5]}}
+						</div>
+					</div>
+				</div>
+				<!-- 
+				<div 
+					class="row" 
+					ng-hide="modalCustomerController.modalHiddenFields['customerGender']">
+					<div 
+						class="col-md-4 col-sm-4 col-xs-12 form-group">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Gender
+							</span>
+							<select 
+								class="form-control" 
+								ng-hide="modalCustomerController.modalHiddenFields['customerGender']" 
+								ng-model="modalCustomerController.customer.customerGender" 
+								ng-options="k as v for (k, v) in modalCustomerController.customerGenderOptions">
+							</select>
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[6]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalCustomerController.isCustomerAddressLabelHidden">
+					<div 
+						class="col-md-6-col-sm-6 col-xs-12 form-group">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Address
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="30" 
+								ng-hide="modalCustomerController.modalHiddenFields['customerAddressHouseBuilding']" 
+								ng-model="modalCustomerController.customer.customerAddressHouseBuilding" 
+								placeholder="House / Floor, Building" 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[7]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row">
+					<div 
+						class="col-md-4 col-sm-4 col-xs-12 form-group" 
+						ng-hide="modalCustomerController.modalHiddenFields['customerAddressStreet']">
+						<input 
+							class="form-control" 
+							maxlength="30" 
+							ng-hide="modalCustomerController.modalHiddenFields['customerAddressStreet']" 
+							ng-model="modalCustomerController.customer.customerAddressStreet" 
+							placeholder="Street" 
+							type="text">
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[8]}}
+						</div>
+					</div>
+					<div 
+						class="col-md-4 col-sm-4 col-xs-12 form-group" 
+						ng-hide="modalCustomerController.modalHiddenFields['customerAddressDistrict']">
+						<input 
+							class="form-control" 
+							maxlength="30" 
+							ng-hide="modalCustomerController.modalHiddenFields['customerAddressDistrict']" 
+							ng-model="modalCustomerController.customer.customerAddressDistrict" 
+							placeholder="District" 
+							type="text">
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[9]}}
+						</div>
+					</div>
+					<div 
+						class="col-md-4 col-sm-4 col-xs-12 form-group" 
+						ng-hide="modalCustomerController.modalHiddenFields['customerAddressCity']">
+						<input 
+							class="form-control" 
+							maxlength="30" 
+							ng-hide="modalCustomerController.modalHiddenFields['customerAddressCity']" 
+							ng-model="modalCustomerController.customer.customerAddressCity" 
+							type="text" 
+							placeholder="City">
+						<div 
+							 class="help-block with-errors">
+							 {{modalCustomerController.validationErr[10]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row">
+					<div 
+						class="col-md-4 col-sm-4 col-xs-12 form-group" 
+						ng-hide="modalCustomerController.modalHiddenFields['customerAddressPostalcode']">
+						<input 
+							class="form-control" 
+							maxlength="30" 
+							ng-hide="modalCustomerController.modalHiddenFields['customerAddressPostalcode']" 
+							ng-model="modalCustomerController.customer.customerAddressPostalcode" 
+							placeholder="Postalcode" 
+							type="text">
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[11]}}
+						</div>
+					</div>
+					<div 
+						class="col-md-4 col-sm-4 col-xs-12 form-group" 
+						ng-hide="modalCustomerController.modalHiddenFields['customerAddressCountry']">
+						<input 
+							class="form-control" 
+							maxlength="30" 
+							ng-hide="modalCustomerController.modalHiddenFields['customerAddressCountry']" 
+							ng-model="modalCustomerController.customer.customerAddressCountry" 
+							placeholder="Country" 
+							type="text">
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[12]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalCustomerController.modalHiddenFields['customerMobile']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Mobile
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="30" 
+								ng-hide="modalCustomerController.modalHiddenFields['customerMobile']" 
+								ng-model="modalCustomerController.customer.customerMobile" 
+								placeholder="Mobile Number" 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[13]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalCustomerController.modalHiddenFields['customerEmail']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Email
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="30" 
+								ng-hide="modalCustomerController.modalHiddenFields['customerEmail']" 
+								ng-model="modalCustomerController.customer.customerEmail" 
+								placeholder="Email Address" 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalCustomerController.validationErr[14]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Birthdate
+							</span> -->
+							<!--  *************** 
+									customer_birthdate (start)
+									*************** -->
+							<!-- 
+							<input 
+								class="form-control" 
+								id="customer_birthdate" 
+								name="customer_birthdate" 
+								placeholder="Birthdate" 
+								type="text"> -->
+							<!--  *************** 
+									customer_birthdate (end)
+									*************** -->
+							<!-- 
+							<span 
+								class="input-group-btn">
+								<button 
+									class="btn btn-default" 
+									type="button">
+									<i 
+										class="glyphicon glyphicon-calendar">
+									</i>
+								</button>
+							</span>
+						</div>
+						<div 
+							class="help-block with-errors">
+						</div>
+					</div>
+				</div> -->
+				<div 
+					class="button-container row">
+			        <div 
+			        	class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-success" 
+							type="submit">
+							<span 
+								ng-if="!modalCustomerController.fromSignup">
+								Submit
+							</span>
+							<span 
+								ng-if="modalCustomerController.fromSignup">
+								Next
+							</span>
+						</button>
+					</div>
+			        <div 
+						class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-danger" 
+							ng-click="modalCustomerController.doCancel();" 
+							type="button">
+							Cancel
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--  *************** 
+				modal_customer (end)
+				*************** -->
+	</div>
+	<!--  *************** 
+			modal_customer-container (end)
+			*************** -->
+</div>

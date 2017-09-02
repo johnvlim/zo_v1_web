@@ -1,0 +1,206 @@
+<div 
+	class="modal-content">
+	<div 
+		class="modal-header">
+		Manage Company
+	</div>
+	<!--  *************** 
+			modal_company-container (start)
+			*************** -->
+	<div 
+		class="modal-body" 
+		id="modal_company-container" 
+		name="modal_company-container" 
+		ng-init="modalCompanyController.initBootstrapValidator(); modalCompanyController.initDom();">
+		<div 
+			class="alert alert-danger" 
+			ng-hide="modalCompanyController.isValidationErrDBHidden">
+			{{modalCompanyController.validationErrDB}}
+		</div>
+		<!--  *************** 
+				modal_company (start)
+				*************** -->
+		<form 
+			class="form-group" 
+			id="modal_company" 
+			name="modal_company">
+			<div 
+				class="container-fluid">
+				<div 
+					class="row" 
+					ng-hide="modalCompanyController.modalHiddenFields['companyName']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Name
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="30" 
+								ng-hide="modalCompanyController.modalHiddenFields['companyName']" 
+								ng-model="modalCompanyController.company.companyName" 
+								placeholder="Name" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalCompanyController.validationErr[0]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalCompanyController.modalHiddenFields['companyDesc']">
+					<div 
+						class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Description
+							</span>
+							<textarea 
+								class="form-control" 
+								maxlength="500" 
+								ng-hide="modalCompanyController.modalHiddenFields['companyDesc']" 
+								ng-model="modalCompanyController.company.companyDesc" 
+								placeholder="Description" 
+								required 
+								rows="5" 
+								type="text">
+							</textarea>
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalCompanyController.validationErr[1]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalCompanyController.modalHiddenFields['companyCategory']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Category
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="30" 
+								ng-hide="modalCompanyController.modalHiddenFields['companyCategory']" 
+								ng-model="modalCompanyController.company.companyCategory" 
+								placeholder="Category" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalCompanyController.validationErr[0]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalCompanyController.modalHiddenFields['companyLogo']">
+					<div 
+						class="col-md-12 col-sm-12 col-xs-12 form-group">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Logo
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="500" 
+								ng-hide="modalCompanyController.modalHiddenFields['companyLogo']" 
+								ng-model="modalCompanyController.company.companyLogo" 
+								placeholder="Logo" 
+								readonly 
+								required 
+								type="url">
+							<span 
+								class="input-group-btn">
+								<label 
+									class="btn btn-primary">
+									<i 
+										class="glyphicon glyphicon-search">
+									</i>
+									<!--  *************** 
+											company_logo_browse (start)
+											*************** -->
+									<input 
+										class="form-control" 
+										id="company_logo_browse" 
+										name="company_logo_browse" 
+										type="file">
+									<!--  *************** 
+											company_logo_browse (end)
+											*************** -->
+								</label>
+								<button 
+									class="btn btn-primary" 
+									ng-click="modalCompanyController.uploadCompanyLogo();" 
+									type="button">
+									<i 
+										class="glyphicon glyphicon-upload">
+									</i>
+								</button>
+							</span>
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalCompanyController.validationErr[2]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="company_logo_image-container" 
+					ng-hide="modalCompanyController.isCompanyLogoImageHidden">
+					<img 
+						src={{modalCompanyController.company.companyLogo}}>
+				</div>
+				<div 
+					class="button-container row">
+			        <div 
+			        	class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-success" 
+							type="submit">
+							<span 
+								ng-if="!modalCompanyController.fromSignup">
+								Submit
+							</span>
+							<span 
+								ng-if="modalCompanyController.fromSignup">
+								Next
+							</span>
+						</button>
+					</div>
+			        <div 
+						class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-danger" 
+							ng-click="modalCompanyController.doCancel();" 
+							type="button">
+							Cancel
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--  *************** 
+				modal_company (start)
+				*************** -->
+	</div>
+	<!--  *************** 
+			modal_company-container (end)
+			*************** -->
+</div>

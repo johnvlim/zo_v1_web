@@ -1,0 +1,134 @@
+<div 
+	class="modal-content">
+	<div 
+		class="modal-header">
+		Manage Order
+	</div>
+	<!--  *************** 
+			modal_order-container (start)
+			*************** -->
+	<div 
+		class="modal-body" 
+		id="modal_order-container" 
+		name="modal_order-container" 
+		ng-init="modalOrderController.initBootstrapValidator(); modalOrderController.initDom();">
+		<div 
+			class="alert alert-danger" 
+			ng-hide="modalOrderController.isValidationErrDBHidden">
+			{{modalOrderController.validationErrDB}}
+		</div>
+		<!--  *************** 
+				modal_order (start)
+				*************** -->
+		<form 
+			class="form-group" 
+			id="modal_order" 
+			name="modal_order">
+			<div 
+				class="container-fluid">
+				<div 
+					class="row" 
+					ng-hide="modalOrderController.modalHiddenFields['menuitemId']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Menuitem id
+							</span>
+							<input 
+								class="form-control" 
+								ng-hide="modalOrderController.modalHiddenFields['menuitemId']" 
+								ng-model="modalOrderController.order.menuitemId" 
+								placeholder="Menuitem Id" 
+								required 
+								type="number">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalOrderController.validationErr[0]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalOrderController.modalHiddenFields['orderreferenceCode']">
+					<div 
+						class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Orderreference code
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="40" 
+								ng-hide="modalOrderController.modalHiddenFields['orderreferenceCode']" 
+								ng-model="modalOrderController.order.orderreferenceCode" 
+								placeholder="Orderreference Code" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalOrderController.validationErr[1]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalOrderController.modalHiddenFields['orderStatus']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Status
+							</span>
+							<select 
+								class="form-control" 
+								ng-hide="modalOrderController.modalHiddenFields['orderStatus']" 
+								ng-model="modalOrderController.order.orderStatus" 
+								ng-options="k as v for (k, v) in modalOrderController.orderStatusOptions" 
+								required>
+							</select>
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalOrderController.validationErr[2]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="button-container row">
+			        <div 
+			        	class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-success" 
+							type="submit">
+							Submit
+						</button>
+					</div>
+			        <div 
+						class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-danger" 
+							ng-click="modalOrderController.doCancel();" 
+							type="button">
+							Cancel
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--  *************** 
+				modal_order (end)
+				*************** -->
+	</div>
+	<!--  *************** 
+			modal_order-container (end)
+			*************** -->
+</div>

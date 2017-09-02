@@ -1,0 +1,34 @@
+div.button-container button{
+	font-family: 'Pavanam', sans-serif;
+	font-size: 15px;
+	
+	width: 100%;
+}
+
+div.form-group div.help-block.with-errors{
+	font-family: 'Pavanam', sans-serif;
+	font-size: 12px;
+}
+
+div.input-group input{
+	font-family: 'Pavanam', sans-serif;
+	font-size: 15px;
+}
+
+div.input-group span{
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+div.modal-body div.alert{
+	font-family: 'Pavanam', sans-serif;
+	font-size: 12px;
+}
+
+div.modal-content div.modal-header{
+	background-color: #dff0d8;
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+}

@@ -1,0 +1,249 @@
+<div 
+	class="modal-content">
+	<div 
+		class="modal-header">
+		Manage Menuitem
+	</div>
+	<!--  *************** 
+			modal_menuitem-container (start)
+			*************** -->
+	<div 
+		class="modal-body" 
+		id="modal_menuitem-container" 
+		name="modal_menuitem-container" 
+		ng-init="modalMenuitemController.initBootstrapValidator(); modalMenuitemController.initDom();">
+		<div 
+			class="alert alert-danger" 
+			ng-hide="modalMenuitemController.isValidationErrDBHidden">
+			{{modalMenuitemController.validationErrDB}}
+		</div>
+		<!--  *************** 
+				modal_menuitem (start)
+				*************** -->
+		<form 
+			class="form-group" 
+			id="modal_menuitem" 
+			name="modal_menuitem">
+			<div 
+				class="container-fluid">
+				<div 
+					class="row" 
+					ng-hide="modalMenuitemController.modalHiddenFields['menuitemCode']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Code
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="10" 
+								ng-hide="modalMenuitemController.modalHiddenFields['menuitemCode']" 
+								ng-model="modalMenuitemController.menuitem.menuitemCode" 
+								placeholder="Code" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalMenuitemController.validationErr[0]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalMenuitemController.modalHiddenFields['menuitemName']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Name
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="30" 
+								ng-hide="modalMenuitemController.modalHiddenFields['menuitemName']" 
+								ng-model="modalMenuitemController.menuitem.menuitemName" 
+								placeholder="Name" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalMenuitemController.validationErr[1]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalMenuitemController.modalHiddenFields['menuitemDesc']">
+					<div 
+						class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Description
+							</span>
+							<textarea 
+								class="form-control" 
+								maxlength="500" 
+								ng-hide="modalMenuitemController.modalHiddenFields['menuitemDesc']" 
+								ng-model="modalMenuitemController.menuitem.menuitemDesc" 
+								placeholder="Description" 
+								required 
+								rows="5" 
+								type="text">
+							</textarea>
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalMenuitemController.validationErr[2]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalMenuitemController.modalHiddenFields['menuitemPrice']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Price
+							</span>
+							<input 
+								class="form-control" 
+								ng-hide="modalMenuitemController.modalHiddenFields['menuitemPrice']" 
+								ng-model="modalMenuitemController.menuitem.menuitemPrice" 
+								placeholder="Price" 
+								required 
+								type="number">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalMenuitemController.validationErr[3]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalMenuitemController.modalHiddenFields['menuitemFeatured']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Featured
+							</span>
+							<select 
+								class="form-control" 
+								ng-hide="modalMenuitemController.modalHiddenFields['menuitemFeatured']" 
+								ng-model="modalMenuitemController.menuitem.menuitemFeatured" 
+								ng-options="k as v for (k,v) in modalMenuitemController.featuredOptions" 
+								required>
+							</select>
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalMenuitemController.validationErr[3]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalMenuitemController.modalHiddenFields['menuitemImage']">
+					<div 
+						class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Image
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="500" 
+								ng-hide="modalMenuitemController.modalHiddenFields['menuitemImage']" 
+								ng-model="modalMenuitemController.menuitem.menuitemImage" 
+								placeholder="Image" 
+								readonly 
+								required 
+								type="url">
+							<span 
+								class="input-group-btn">
+								<label 
+									class="btn btn-primary">
+									<i 
+										class="glyphicon glyphicon-search">
+									</i>
+									<!--  *************** 
+											menuitem_image_browse (start)
+											*************** -->
+									<input 
+										class="form-control" 
+										id="menuitem_image_browse" 
+										name="menuitem_image_browse" 
+										type="file">
+									<!--  *************** 
+											menuitem_image_browse (end)
+											*************** -->
+								</label>
+								<button 
+									class="btn btn-primary" 
+									ng-click="modalMenuitemController.uploadMenuitemImage();" 
+									type="button">
+									<i 
+										class="glyphicon glyphicon-upload">
+									</i>
+								</button>
+							</span>
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalMenuitemController.validationErr[4]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="menuitem_image_image-container" 
+					ng-hide="modalMenuitemController.isMenuitemImageImageHidden">
+					<img 
+						src={{modalMenuitemController.menuitem.menuitemImage}}>
+				</div>
+				<div 
+					class="button-container row">
+			        <div 
+			        	class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-success" 
+							type="submit">
+							Submit
+						</button>
+					</div>
+			        <div 
+						class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-danger" 
+							ng-click="modalMenuitemController.doCancel();" 
+							type="button">
+							Cancel
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--  *************** 
+				modal_menuitem (end)
+				*************** -->
+	</div>
+	<!--  *************** 
+			modal_menuitem-container (end)
+			*************** -->
+</div>

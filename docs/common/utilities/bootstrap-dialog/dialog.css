@@ -1,0 +1,10 @@
+div.bootstrap-dialog-footer, 
+div.bootstrap-dialog-header{
+	font-family: 'Pavanam', sans-serif;
+    font-size: 15px;
+}
+
+div.bootstrap-dialog-message{
+    font-family: 'Pavanam', sans-serif;
+    font-size: 12px;
+}

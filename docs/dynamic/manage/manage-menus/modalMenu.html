@@ -1,0 +1,199 @@
+<div 
+	class="modal-content">
+	<div 
+		class="modal-header">
+		Manage Menu
+	</div>
+	<!--  *************** 
+			modal_menu-container (start)
+			*************** -->
+	<div 
+		class="modal-body" 
+		id="modal_menu-container" 
+		name="modal_menu-container" 
+		ng-init="modalMenuController.initBootstrapValidator(); modalMenuController.initDom();">
+		<div 
+			class="alert alert-danger" 
+			ng-hide="modalMenuController.isValidationErrDBHidden">
+			{{modalMenuController.validationErrDB}}
+		</div>
+		<!--  *************** 
+				modal_menu (start)
+				*************** -->
+		<form 
+			class="form-group" 
+			id="modal_menu" 
+			name="modal_menu">
+			<div 
+				class="container-fluid">
+				<div 
+					class="row" 
+					ng-hide="modalMenuController.modalHiddenFields['menuName']">
+					<div 
+						class="col-md-6 col-sm-6 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Name
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="30" 
+								ng-hide="modalMenuController.modalHiddenFields['menuName']" 
+								ng-model="modalMenuController.menu.menuName" 
+								placeholder="Name" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalMenuController.validationErr[0]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalMenuController.modalHiddenFields['companyName']">
+					<div 
+						class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Company name
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="30" 
+								ng-hide="modalMenuController.modalHiddenFields['companyName']" 
+								ng-model="modalMenuController.menu.companyName" 
+								placeholder="Company Name" 
+								required 
+								type="text">
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalMenuController.validationErr[1]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalMenuController.modalHiddenFields['menuDesc']">
+					<div 
+						class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Description
+							</span>
+							<textarea 
+								class="form-control" 
+								maxlength="500" 
+								ng-hide="modalMenuController.modalHiddenFields['menuDesc']" 
+								ng-model="modalMenuController.menu.menuDesc" 
+								placeholder="Description" 
+								required 
+								rows="5" 
+								type="text">
+							</textarea>
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalMenuController.validationErr[2]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="row" 
+					ng-hide="modalMenuController.modalHiddenFields['menuImage']">
+					<div 
+						class="col-md-12 col-sm-12 col-xs-12 form-group form-group-required">
+						<div 
+							class="input-group">
+							<span 
+								class="input-group-addon">
+								Image
+							</span>
+							<input 
+								class="form-control" 
+								maxlength="1000" 
+								ng-hide="modalMenuController.modalHiddenFields['menuImage']" 
+								ng-model="modalMenuController.menu.menuImage" 
+								placeholder="Image" 
+								readonly 
+								required 
+								type="url">
+							<span 
+								class="input-group-btn">
+								<label 
+									class="btn btn-primary">
+									<i 
+										class="glyphicon glyphicon-search">
+									</i>
+									<!--  *************** 
+											menu_image_browse (start)
+											*************** -->
+									<input 
+										class="form-control" 
+										id="menu_image_browse" 
+										name="menu_image_browse" 
+										type="file">
+									<!--  *************** 
+											menu_image_browse (end)
+											*************** -->
+								</label>
+								<button 
+									class="btn btn-primary" 
+									ng-click="modalMenuController.uploadMenuImage();" 
+									type="button">
+									<i 
+										class="glyphicon glyphicon-upload">
+									</i>
+								</button>
+							</span>
+						</div>
+						<div 
+							class="help-block with-errors">
+							{{modalMenuController.validationErr[3]}}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="menu_image_image-container" 
+					ng-hide="modalMenuController.isMenuImageImageHidden">
+					<img 
+						src={{modalMenuController.menu.menuImage}}>
+				</div>
+				<div 
+					class="button-container row">
+			        <div 
+			        	class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-success" 
+							type="submit">
+							Submit
+						</button>
+					</div>
+			        <div 
+						class="col-md-6 col-sm-6 col-xs-12">
+						<button 
+							class="btn btn-danger" 
+							ng-click="modalMenuController.doCancel();" 
+							type="button">
+							Cancel
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--  *************** 
+				modal_menu (end)
+				*************** -->
+	</div>
+	<!--  *************** 
+			modal_menu-container (end)
+			*************** -->
+</div>
